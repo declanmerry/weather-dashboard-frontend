@@ -5,7 +5,7 @@ function App() {
   const [weather, setWeather] = useState(null);
 
   const fetchWeather = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/weather/${city}`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/weather/${city}`);
     const data = await res.json();
     setWeather(data);
   };
