@@ -3,9 +3,11 @@ import { useState } from "react";
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/+$/, ""); // remove trailing slash
 
   const fetchWeather = async () => {
     if (!city) return;
+    
     const normalizedCity = city.trim().toLowerCase();
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/weather/${normalizedCity}`);
@@ -15,6 +17,7 @@ function App() {
       console.error("Error fetching weather:", err);
     }
   };
+
 
   const displayCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
 
