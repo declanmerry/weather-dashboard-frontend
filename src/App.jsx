@@ -14,7 +14,7 @@ function App() {
     
     const normalizedCity = city.trim().toLowerCase();
     try {
-      const res = await fetch(`${backendUrl}weather/${normalizedCity}`);
+      const res = await fetch(`${backendUrl}/weather/${normalizedCity}`);
       const data = await res.json();
       setWeather(data);
     } catch (err) {
