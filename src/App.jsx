@@ -43,8 +43,9 @@ const getWeatherType = (description) => {
   if (lower.includes("clear")) return "clear";
   if (lower.includes("thunder")) return "thunder";
   if (lower.includes("mist") || lower.includes("fog") || lower.includes("haze")) return "mist";
+  console.log("Weather description:", description);
 
-  return "default";
+  return "default";  
 };
 
 
