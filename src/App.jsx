@@ -27,6 +27,7 @@ const fetchWeather = async () => {
       const data = await res.json();
       setWeather(data);
       setWeatherType(getWeatherType(data.open_weather?.weather));
+      console.log("Weather description:", description);
     } catch (err) {
       setError("Unable to fetch weather data. Please try again.");
     }
@@ -43,7 +44,7 @@ const getWeatherType = (description) => {
   if (lower.includes("clear")) return "clear";
   if (lower.includes("thunder")) return "thunder";
   if (lower.includes("mist") || lower.includes("fog") || lower.includes("haze")) return "mist";
-  console.log("Weather description:", description);
+  
 
   return "default";  
 };
