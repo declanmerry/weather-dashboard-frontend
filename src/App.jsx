@@ -51,7 +51,7 @@ const getWeatherType = (description) => {
 const particleOptions = {
   clear: {
     // light, subtle sparkle for clear sky
-    background: { color: "#87CEEB" }, // soft blue sky
+    //background: { color: "#87CEEB" }, // soft blue sky
     particles: {
       number: { value: 30 },
       color: { value: "#fff" },
@@ -61,7 +61,7 @@ const particleOptions = {
     },
   },
   cloud: {
-    background: { color: "#bdc3c7" }, // grey sky
+    //background: { color: "#bdc3c7" }, // grey sky
     particles: {
       number: { value: 40 },
       color: { value: "#ecf0f1" },
@@ -72,7 +72,7 @@ const particleOptions = {
     },
   },
   rain: {
-    background: { color: "#2c3e50" }, // dark rain sky
+    //background: { color: "#2c3e50" }, // dark rain sky
     particles: {
       number: { value: 200 },
       color: { value: "#3498db" },
@@ -83,7 +83,7 @@ const particleOptions = {
     },
   },
   snow: {
-    background: { color: "#ecf0f1" }, // light snowy sky
+    //background: { color: "#ecf0f1" }, // light snowy sky
     particles: {
       number: { value: 100 },
       color: { value: "#fff" },
@@ -94,7 +94,7 @@ const particleOptions = {
     },
   },
   thunder: {
-    background: { color: "#2f3640" }, // dark storm
+    //background: { color: "#2f3640" }, // dark storm
     particles: {
       number: { value: 50 },
       color: { value: "#f1c40f" },
@@ -104,7 +104,7 @@ const particleOptions = {
     },
   },
   mist: {
-    background: { color: "#95a5a6" }, // foggy sky
+    //background: { color: "#95a5a6" }, // foggy sky
     particles: {
       number: { value: 60 },
       color: { value: "#bdc3c7" },
@@ -115,7 +115,7 @@ const particleOptions = {
     },
   },
   default: {
-    background: { color: "#34495e" }, // fallback
+    //background: { color: "#34495e" }, // fallback
     particles: { number: { value: 0 } },
   },
 };
@@ -126,9 +126,9 @@ return (
      <div style={{position: "relative",height: "100vh",overflow: "hidden",//background: particleOptions[weatherType].background.color,
   }}
 >
-  //<Particles id="tsparticles" options={particleOptions[weatherType]} />
+  <Particles id="tsparticles" options={particleOptions[weatherType]} />
   
-  <div style={{position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 0, // bring content above particles
+  <div style={{position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 100, // bring content above particles
     }}>
         <h1>🌦️ Weather Dashboard</h1>
       <input
