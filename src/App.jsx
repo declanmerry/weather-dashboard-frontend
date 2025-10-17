@@ -131,13 +131,13 @@ const particleOptions = {
 
 return (
      <div style={{ position: "relative", height: "100vh", overflow: "hidden"}}>
-    <Particles
+    {/* <Particles 
       id="tsparticles"
       options={{
         fullScreen: { enable: true },
         ...particleOptions[weatherType]
       }}
-    />
+    /> */}
   
   <div style={{ position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 10 }}>
       <h1>🌦️ Weather Dashboard</h1>
