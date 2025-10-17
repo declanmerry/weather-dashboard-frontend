@@ -53,7 +53,7 @@ return (
     position: "relative",
     height: "100vh",
     overflow: "hidden",
-    background: "#f0f0f0", // light grey, or "#87CEEB" for blue sky
+    //background: "#f0f0f0", // light grey, or "#87CEEB" for blue sky
     color: "#000",          // black text for visibility
     paddingTop: "2rem",
     textAlign: "center",
