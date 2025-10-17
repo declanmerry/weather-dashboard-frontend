@@ -47,32 +47,20 @@ const getWeatherType = (description) => {
   return "default";
 };
 
+
 return (
-     <div
-  style={{
-    position: "relative",
-    height: "100vh",
-    overflow: "hidden",
-    //background: "#f0f0f0", // light grey, or "#87CEEB" for blue sky
-    color: "#000",          // black text for visibility
-    paddingTop: "2rem",
-    textAlign: "center",
-  }}
->
+     <div style={{ position: "relative", height: "100vh", overflow: "hidden"}}>
   
   
-  <div style={{ display: "flex", justifyContent: "center", marginTop: 10, flexWrap: "wrap" }}>
+  <div style={{ position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 10 }}>
       <h1>🌦️ Weather Dashboard</h1>
-        
-    <input
-      value={city}
-      onChange={(e) => setCity(e.target.value)}
-      placeholder="Enter city name"
-      style={{ padding: 10, flexGrow: 1, minWidth: 200, marginRight: 10, marginBottom: 10 }}
-    />
-    <button style={{ padding: "10px 20px" }} onClick={fetchWeather}>
-      Get Weather
-    </button>
+      <input
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        placeholder="Enter city name"
+        style={{ padding: 10, width: "70%", marginRight: 10 }}
+      />
+      <button onClick={fetchWeather}>Get Weather</button>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
