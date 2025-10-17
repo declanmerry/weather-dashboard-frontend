@@ -52,7 +52,7 @@ const particleOptions = {
   clear: {
     // light, subtle sparkle for clear sky
      fullScreen: { enable: true }, // full canvas
-    background: { color: "#87CEEB" }, // soft blue sky
+    //background: { color: "#87CEEB" }, // soft blue sky
     particles: {
       number: { value: 30 },
       color: { value: "#fff" },
