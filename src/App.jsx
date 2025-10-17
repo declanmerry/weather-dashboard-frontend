@@ -61,15 +61,17 @@ return (
 >
   
   
-  <div style={{ top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 10 }}>
-      <h1>🌦️ Weather Dashboard</h1>
-      <input
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city name"
-        style={{ padding: 10, width: "70%", marginRight: 10 }}
-      />
-      <button onClick={fetchWeather}>Get Weather</button>
+  <div style={{ display: "flex", justifyContent: "center", marginTop: 10, flexWrap: "wrap" }}>
+    <input
+      value={city}
+      onChange={(e) => setCity(e.target.value)}
+      placeholder="Enter city name"
+      style={{ padding: 10, flexGrow: 1, minWidth: 200, marginRight: 10, marginBottom: 10 }}
+    />
+    <button style={{ padding: "10px 20px" }} onClick={fetchWeather}>
+      Get Weather
+    </button>
+
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
