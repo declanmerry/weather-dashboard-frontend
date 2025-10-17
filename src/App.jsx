@@ -62,6 +62,8 @@ return (
   
   
   <div style={{ display: "flex", justifyContent: "center", marginTop: 10, flexWrap: "wrap" }}>
+      <h1>🌦️ Weather Dashboard</h1>
+        
     <input
       value={city}
       onChange={(e) => setCity(e.target.value)}
@@ -71,7 +73,6 @@ return (
     <button style={{ padding: "10px 20px" }} onClick={fetchWeather}>
       Get Weather
     </button>
-
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
