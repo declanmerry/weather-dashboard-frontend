@@ -130,8 +130,7 @@ const particleOptions = {
 
 
 return (
-     <div style={{ position: "relative", height: "100vh", overflow: "hidden", //background: "#87CEEB" 
-     }}>
+     <div style={{ position: "relative", height: "100vh", overflow: "hidden"}}>
     <Particles
       id="tsparticles"
       options={{
