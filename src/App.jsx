@@ -123,25 +123,12 @@ const particleOptions = {
 
 
 return (
-     <div
-  style={{
-    position: "relative",
-    height: "100vh",
-    overflow: "hidden",
-    //background: particleOptions[weatherType].background.color,
+     <div style={{position: "relative",height: "100vh",overflow: "hidden",//background: particleOptions[weatherType].background.color,
   }}
 >
-  <Particles id="tsparticles" options={particleOptions[weatherType]} />
+  //<Particles id="tsparticles" options={particleOptions[weatherType]} />
   
-  <div
-    style={{
-      position: "absolute",
-      top: 0,
-      width: "100%",
-      textAlign: "center",
-      color: "#fff",
-      padding: "2rem",
-      zIndex: 10, // bring content above particles
+  <div style={{position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 0, // bring content above particles
     }}>
         <h1>🌦️ Weather Dashboard</h1>
       <input
