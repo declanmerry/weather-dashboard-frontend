@@ -28,7 +28,8 @@ const fetchWeather = async () => {
       setWeather(data);
        // 🔹 Get the description from OpenWeatherMap
       const description = data.open_weather?.weather;
-      console.log("Weather description:", description);
+      const weatherType = getWeatherType(description);
+      console.log("Weather description:", weatherType);
 
       // Set weather type for any other logic you have
       setWeatherType(getWeatherType(description));
