@@ -26,8 +26,12 @@ const fetchWeather = async () => {
       if (!res.ok) throw new Error("City not found");
       const data = await res.json();
       setWeather(data);
-      setWeatherType(getWeatherType(data.open_weather?.weather));
+       // 🔹 Get the description from OpenWeatherMap
+      const description = data.open_weather?.weather;
       console.log("Weather description:", description);
+
+      // Set weather type for any other logic you have
+      setWeatherType(getWeatherType(description));
     } catch (err) {
       setError("Unable to fetch weather data. Please try again.");
     }
