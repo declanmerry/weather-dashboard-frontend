@@ -51,7 +51,7 @@ const getWeatherType = (description) => {
 const particleOptions = {
   clear: {
     // light, subtle sparkle for clear sky
-    //background: { color: "#87CEEB" }, // soft blue sky
+    background: { color: "#87CEEB" }, // soft blue sky
     particles: {
       number: { value: 30 },
       color: { value: "#fff" },
@@ -128,7 +128,7 @@ return (
     position: "relative",
     height: "100vh",
     overflow: "hidden",
-    background: particleOptions[weatherType].background.color,
+    //background: particleOptions[weatherType].background.color,
   }}
 >
   <Particles id="tsparticles" options={particleOptions[weatherType]} />
