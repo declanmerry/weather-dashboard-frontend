@@ -48,42 +48,101 @@ const getWeatherType = (description) => {
 };
 
 // Particle styles based on weather
-  const particleOptions = {
-    clear: {
-      background: { color: "#87CEEB" },
-      particles: { number: { value: 20 }, move: { speed: 1 }, opacity: { value: 0 } },
+const particleOptions = {
+  clear: {
+    // light, subtle sparkle for clear sky
+    background: { color: "#87CEEB" }, // soft blue sky
+    particles: {
+      number: { value: 30 },
+      color: { value: "#fff" },
+      size: { value: 2 },
+      move: { speed: 0.5, direction: "top", outMode: "out" },
+      opacity: { value: 0.7 },
     },
-    cloud: {
-      background: { color: "#bdc3c7" },
-      particles: { number: { value: 50 }, color: { value: "#ecf0f1" }, size: { value: 30 }, move: { speed: 0.5 } },
+  },
+  cloud: {
+    background: { color: "#bdc3c7" }, // grey sky
+    particles: {
+      number: { value: 40 },
+      color: { value: "#ecf0f1" },
+      shape: { type: "circle" },
+      size: { value: 20 },
+      move: { speed: 0.2, direction: "top", outMode: "out" },
+      opacity: { value: 0.3 },
     },
-    rain: {
-      background: { color: "#2c3e50" },
-      particles: { number: { value: 150 }, color: { value: "#3498db" }, size: { value: 2 }, move: { speed: 20, direction: "bottom" } },
+  },
+  rain: {
+    background: { color: "#2c3e50" }, // dark rain sky
+    particles: {
+      number: { value: 200 },
+      color: { value: "#3498db" },
+      shape: { type: "line" },
+      size: { value: 2 },
+      move: { speed: 25, direction: "bottom", straight: true, outMode: "out" },
+      opacity: { value: 0.5 },
     },
-    snow: {
-      background: { color: "#ecf0f1" },
-      particles: { number: { value: 100 }, color: { value: "#fff" }, size: { value: 5 }, move: { speed: 2, direction: "bottom" } },
+  },
+  snow: {
+    background: { color: "#ecf0f1" }, // light snowy sky
+    particles: {
+      number: { value: 100 },
+      color: { value: "#fff" },
+      shape: { type: "circle" },
+      size: { value: 4 },
+      move: { speed: 1, direction: "bottom", outMode: "out" },
+      opacity: { value: 0.8 },
     },
-    thunder: {
-      background: { color: "#2f3640" },
-      particles: { number: { value: 20 }, color: { value: "#f1c40f" }, size: { value: 10 }, move: { speed: 5 } },
+  },
+  thunder: {
+    background: { color: "#2f3640" }, // dark storm
+    particles: {
+      number: { value: 50 },
+      color: { value: "#f1c40f" },
+      size: { value: 8 },
+      move: { speed: 10, direction: "random", outMode: "out" },
+      opacity: { value: 1 },
     },
-    mist: {
-      background: { color: "#95a5a6" },
-      particles: { number: { value: 50 }, color: { value: "#bdc3c7" }, opacity: { value: 0.2 }, size: { value: 15 }, move: { speed: 0.3 } },
+  },
+  mist: {
+    background: { color: "#95a5a6" }, // foggy sky
+    particles: {
+      number: { value: 60 },
+      color: { value: "#bdc3c7" },
+      shape: { type: "circle" },
+      size: { value: 15 },
+      move: { speed: 0.3, direction: "top", outMode: "out" },
+      opacity: { value: 0.2 },
     },
-    default: {
-      background: { color: "#34495e" },
-      particles: { number: { value: 0 } },
-    },
-  };
+  },
+  default: {
+    background: { color: "#34495e" }, // fallback
+    particles: { number: { value: 0 } },
+  },
+};
+
 
 
 return (
-     <div style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
-      <Particles id="tsparticles" options={particleOptions[weatherType]} />
-      <div style={{ position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem" }}>
+     <div
+  style={{
+    position: "relative",
+    height: "100vh",
+    overflow: "hidden",
+    background: particleOptions[weatherType].background.color,
+  }}
+>
+  <Particles id="tsparticles" options={particleOptions[weatherType]} />
+  
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      width: "100%",
+      textAlign: "center",
+      color: "#fff",
+      padding: "2rem",
+      zIndex: 10, // bring content above particles
+    }}>
         <h1>🌦️ Weather Dashboard</h1>
       <input
         value={city}
