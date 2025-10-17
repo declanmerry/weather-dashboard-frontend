@@ -43,7 +43,7 @@ const getWeatherType = (description) => {
   const lower = description.toLowerCase();
 
   if (lower.includes("rain") || lower.includes("drizzle")) return "rain";
-  if (lower.includes("cloud")) return "cloud";
+  if (lower.includes("cloud") || lower.includes("clouds")) return "cloud";
   if (lower.includes("snow")) return "snow";
   if (lower.includes("clear")) return "clear";
   if (lower.includes("thunder")) return "thunder";
