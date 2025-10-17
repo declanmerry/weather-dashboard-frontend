@@ -16,7 +16,8 @@ const fetchWeather = async () => {
 
     const normalizedCity = city.trim().toLowerCase();
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/weather/${normalizedCity}`);
+      const baseUrl = import.meta.env.VITE_API_URL.replace(/\/$/, ""); // remove trailing slash if any
+      const res = await fetch(`${baseUrl}/weather/${city.toLowerCase()}`);
       if (!res.ok) throw new Error("City not found");
       const data = await res.json();
       setWeather(data);
