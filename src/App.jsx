@@ -48,10 +48,20 @@ const getWeatherType = (description) => {
 };
 
 return (
-     <div style={{ position: "relative", height: "100vh", overflow: "hidden"}}>
+     <div
+  style={{
+    position: "relative",
+    height: "100vh",
+    overflow: "hidden",
+    background: "#f0f0f0", // light grey, or "#87CEEB" for blue sky
+    color: "#000",          // black text for visibility
+    paddingTop: "2rem",
+    textAlign: "center",
+  }}
+>
   
   
-  <div style={{ position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 10 }}>
+  <div style={{ top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 10 }}>
       <h1>🌦️ Weather Dashboard</h1>
       <input
         value={city}
