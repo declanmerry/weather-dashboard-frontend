@@ -49,18 +49,61 @@ const getWeatherType = (description) => {
 
 
 return (
-     <div style={{ position: "relative", height: "100vh", overflow: "hidden"}}>
-  
-  
-  <div style={{ position: "absolute", top: 0, width: "100%", textAlign: "center", color: "#fff", padding: "2rem", zIndex: 10 }}>
-      <h1>🌦️ Weather Dashboard</h1>
-      <input
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city name"
-        style={{ padding: 10, width: "70%", marginRight: 10 }}
-      />
-      <button onClick={fetchWeather}>Get Weather</button>
+<div
+  style={{
+    position: "relative",
+    height: "100vh",
+    overflow: "hidden",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    paddingTop: "5rem", // space from top
+    textAlign: "center",
+    color: "#fff",
+    width: "100%",
+  }}
+>
+  <h1 style={{ marginBottom: "2rem" }}>🌦️ Weather Dashboard</h1>
+
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      width: "80%",
+      maxWidth: 600,
+      marginBottom: "2rem",
+    }}
+  >
+    <input
+      value={city}
+      onChange={(e) => setCity(e.target.value)}
+      placeholder="Enter city name"
+      style={{
+        padding: 10,
+        flexGrow: 1,
+        minWidth: 200,
+        marginRight: 10,
+        marginBottom: 10,
+        borderRadius: 4,
+        border: "none",
+      }}
+    />
+    <button
+      onClick={fetchWeather}
+      style={{
+        padding: "10px 20px",
+        borderRadius: 4,
+        border: "none",
+        cursor: "pointer",
+        backgroundColor: "#3498db",
+        color: "#fff",
+      }}
+    >
+      Get Weather
+    </button>
+
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
