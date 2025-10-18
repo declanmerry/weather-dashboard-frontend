@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles"; // <-- required
+import Particles from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim"; // smaller bundle, still works great
+//import { loadFull } from "@tsparticles/full"; 
 
 function App() {
   const [city, setCity] = useState("");
@@ -9,10 +10,11 @@ function App() {
   const [error, setError] = useState(null);
 
   // 🧩 Initialize the tsParticles engine
-  const particlesInit = useCallback(async (engine) => {
-    console.log("tsParticles engine loaded:", engine);
-    await loadFull(engine); // <- load all presets/shapes/motions
-  }, []);
+const particlesInit = useCallback(async (engine) => {
+  console.log("tsParticles engine loaded:", engine);
+  await loadSlim(engine); // ✅ loadSlim for lightweight version
+}, []);
+
 
   const fetchWeather = async () => {
     setError(null);
