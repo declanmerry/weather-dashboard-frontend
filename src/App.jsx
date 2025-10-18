@@ -69,8 +69,8 @@ const particlesInit = useCallback(async (engine) => {
           position: "fixed",
           top: 0,
           left: 0,
-          width: "80%",
-          height: "80%",
+          width: "100%",
+          height: "100%",
           zIndex: 0,
         }}
       />
