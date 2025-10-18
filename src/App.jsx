@@ -50,11 +50,11 @@ const particlesInit = useCallback(async (engine) => {
   const particleOptions = {
     background: { color: "#1e1e1e" },
     particles: {
-      number: { value: 60 },
+      number: { value: 100 },
       size: { value: 3 },
       color: { value: "#ffffff" },
       move: { enable: true, speed: 1 },
-      opacity: { value: 0.6 },
+      opacity: { value: 0.8 },
     },
   };
 
