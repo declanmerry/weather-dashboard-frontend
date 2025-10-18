@@ -54,6 +54,22 @@ const getWeatherType = (description) => {
   return "default";  
 };
 
+ // Minimal particle options
+  const particleOptions = {
+    particles: {
+      number: { value: 30 },
+      size: { value: 3 },
+      color: { value: "#ffffff" },
+      move: { speed: 1, direction: "none", outMode: "out" },
+      opacity: { value: 0.5 },
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: false },
+        onClick: { enable: false },
+      },
+    },
+  };
 
 return (
 <div
@@ -71,6 +87,21 @@ return (
     width: "100%",
   }}
 >
+  {/* Particles in the background */}
+      <Particles id="tsparticles" options={particleOptions} />
+
+      {/* Foreground content */}
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          width: "100%",
+          textAlign: "center",
+          color: "#000",
+          padding: "2rem",
+          zIndex: 10,
+        }}
+      ></div>
   <h1 style={{ marginBottom: "2rem" }}>🌦️ Weather Dashboard</h1>
 
   <div
