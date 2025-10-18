@@ -60,7 +60,7 @@ const getWeatherType = (description) => {
       number: { value: 300 },
       size: { value: 30 },
       color: { value: "#ffffff" },
-      move: { speed: 10, direction: "up", outMode: "out" },
+      move: { speed: 10, direction: "up", outModes: "out" },
       opacity: { value: 0.5 },
     },
     interactivity: {
@@ -85,6 +85,7 @@ return (
     textAlign: "center",
     color: "#fff",
     width: "100%",
+    
   }}
 >
   {/* Particles in the background */}
@@ -100,6 +101,7 @@ return (
           color: "#000",
           padding: "2rem",
           zIndex: 10,
+          opacity: 0.5,
         }}
       ></div>
   <h1 style={{ marginBottom: "2rem" }}>🌦️ Weather Dashboard</h1>
