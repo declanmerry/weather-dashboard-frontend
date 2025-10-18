@@ -28,15 +28,17 @@ const particlesInit = useCallback(async (engine) => {
       const type = getWeatherType(description);
       console.log("Weather type:", type);
       setWeatherType(type);
-      setWeather(data);
+      setWeather(data);      
     } catch {
       setError("Unable to fetch weather data. Please try again.");
     }
+    console.log("Weather fetched");
   };
 
   const getWeatherType = (description) => {
     if (!description) return "default";
     const lower = description.toLowerCase();
+    console.log("pulling weather type");
     if (lower.includes("rain") || lower.includes("drizzle")) return "rain";
     if (lower.includes("cloud") || lower.includes("clouds")) return "cloud";
     if (lower.includes("snow")) return "snow";
