@@ -70,7 +70,7 @@ const getWeatherType = (description) => {
 
   return (
     <div style={{ position: "relative", height: "100vh", width: "100vw", overflow: "hidden" }}>
-      {/* Particles background (behind everything) */}
+      {/* Particles background (behind everything?) */}
       <Particles
         id="tsparticles"
         options={particleOptions}
