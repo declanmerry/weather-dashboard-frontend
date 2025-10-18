@@ -67,8 +67,8 @@ function App() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: "100%",
-          height: "100%",
+          width: "80%",
+          height: "80%",
           zIndex: 0,
         }}
       />
@@ -90,7 +90,7 @@ function App() {
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
-            width: "80%",
+            width: "70%",
             maxWidth: 600,
             margin: "2rem auto",
           }}
