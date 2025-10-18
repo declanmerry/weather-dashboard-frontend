@@ -1,72 +1,54 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles"; // <-- required
-
-
 
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [weatherType, setWeatherType] = useState("default");
   const [error, setError] = useState(null);
-  // Remove trailing slash from backend URL
-  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/+$/, "");
-  const normalizedCity = city.trim().toLowerCase();
 
-const displayCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
-
- // 🧩 Initialize the tsParticles engine
+  // 🧩 Initialize the tsParticles engine
   const particlesInit = useCallback(async (engine) => {
     console.log("tsParticles engine loaded:", engine);
     await loadFull(engine); // <- load all presets/shapes/motions
   }, []);
 
-const fetchWeather = async () => {
+  const fetchWeather = async () => {
     setError(null);
     setWeather(null);
-
-    const normalizedCity = city.trim().toLowerCase();
     try {
-      const baseUrl = import.meta.env.VITE_API_URL.replace(/\/$/, ""); // remove trailing slash if any
+      const baseUrl = import.meta.env.VITE_API_URL.replace(/\/$/, "");
       const res = await fetch(`${baseUrl}/weather/${city.toLowerCase()}`);
       if (!res.ok) throw new Error("City not found");
       const data = await res.json();
-      setWeather(data);
-       // 🔹 Get the description from OpenWeatherMap
       const description = data.open_weather?.weather;
-      const weatherType = getWeatherType(description);
-      console.log("Weather description:", weatherType);
-
-      // Set weather type for any other logic you have
-      setWeatherType(getWeatherType(description));
-    } catch (err) {
+      const type = getWeatherType(description);
+      console.log("Weather type:", type);
+      setWeatherType(type);
+      setWeather(data);
+    } catch {
       setError("Unable to fetch weather data. Please try again.");
     }
   };
- 
-const getWeatherType = (description) => {
-  if (!description) return "default";
 
-  const lower = description.toLowerCase();
+  const getWeatherType = (description) => {
+    if (!description) return "default";
+    const lower = description.toLowerCase();
+    if (lower.includes("rain") || lower.includes("drizzle")) return "rain";
+    if (lower.includes("cloud") || lower.includes("clouds")) return "cloud";
+    if (lower.includes("snow")) return "snow";
+    if (lower.includes("clear")) return "clear";
+    if (lower.includes("thunder")) return "thunder";
+    if (lower.includes("mist") || lower.includes("fog") || lower.includes("haze")) return "mist";
+    return "default";
+  };
 
-  if (lower.includes("rain") || lower.includes("drizzle")) return "rain";
-  if (lower.includes("cloud") || lower.includes("clouds")) return "cloud";
-  if (lower.includes("snow")) return "snow";
-  if (lower.includes("clear")) return "clear";
-  if (lower.includes("thunder")) return "thunder";
-  if (lower.includes("mist") || lower.includes("fog") || lower.includes("haze")) return "mist";
-  
-
-  return "default";  
-};
-
-  // Simple visible particles for testing
+  // ✨ Simple visible test particles
   const particleOptions = {
-    background: {
-      color: "#1e1e1e", // dark background to make white particles visible
-    },
+    background: { color: "#1e1e1e" },
     particles: {
-      number: { value: 80 },
+      number: { value: 60 },
       size: { value: 3 },
       color: { value: "#ffffff" },
       move: { enable: true, speed: 1 },
@@ -76,10 +58,10 @@ const getWeatherType = (description) => {
 
   return (
     <div style={{ position: "relative", height: "100vh", width: "100vw", overflow: "hidden" }}>
-      {/* Particles background (behind everything?) */}
+      {/* Background particles */}
       <Particles
         id="tsparticles"
-          init={particlesInit} // ✅ required
+        init={particlesInit} // ✅ required
         options={particleOptions}
         style={{
           position: "fixed",
@@ -87,11 +69,11 @@ const getWeatherType = (description) => {
           left: 0,
           width: "100%",
           height: "100%",
-          zIndex: 0, // stays behind content
+          zIndex: 0,
         }}
       />
 
-      {/* Foreground content */}
+      {/* Foreground UI */}
       <div
         style={{
           position: "relative",
@@ -102,6 +84,7 @@ const getWeatherType = (description) => {
         }}
       >
         <h1>🌦️ Weather Dashboard</h1>
+
         <div
           style={{
             display: "flex",
