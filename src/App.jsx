@@ -57,10 +57,10 @@ const getWeatherType = (description) => {
  // Minimal particle options
   const particleOptions = {
     particles: {
-      number: { value: 30 },
-      size: { value: 3 },
+      number: { value: 300 },
+      size: { value: 30 },
       color: { value: "#ffffff" },
-      move: { speed: 1, direction: "none", outMode: "out" },
+      move: { speed: 10, direction: "up", outMode: "out" },
       opacity: { value: 0.5 },
     },
     interactivity: {
