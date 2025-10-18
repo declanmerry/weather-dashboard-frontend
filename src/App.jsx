@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Particles from "react-tsparticles";
-
+import { loadFull } from "tsparticles"; // <-- required
 
 
 
@@ -14,6 +14,12 @@ function App() {
   const normalizedCity = city.trim().toLowerCase();
 
 const displayCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+
+ // 🧩 Initialize the tsParticles engine
+  const particlesInit = useCallback(async (engine) => {
+    console.log("tsParticles engine loaded:", engine);
+    await loadFull(engine); // <- load all presets/shapes/motions
+  }, []);
 
 const fetchWeather = async () => {
     setError(null);
@@ -63,7 +69,7 @@ const getWeatherType = (description) => {
       number: { value: 80 },
       size: { value: 3 },
       color: { value: "#ffffff" },
-      move: { speed: 1 },
+      move: { enable: true, speed: 1 },
       opacity: { value: 0.6 },
     },
   };
@@ -73,6 +79,7 @@ const getWeatherType = (description) => {
       {/* Particles background (behind everything?) */}
       <Particles
         id="tsparticles"
+          init={particlesInit} // ✅ required
         options={particleOptions}
         style={{
           position: "fixed",
