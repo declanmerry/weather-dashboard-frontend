@@ -54,20 +54,17 @@ const getWeatherType = (description) => {
   return "default";  
 };
 
- // Minimal particle options
+  // Simple visible particles for testing
   const particleOptions = {
-    particles: {
-      number: { value: 300 },
-      size: { value: 30 },
-      color: { value: "#ffffff" },
-      move: { speed: 10, direction: "up", outModes: "out" },
-      opacity: { value: 0.5 },
+    background: {
+      color: "#1e1e1e", // dark background to make white particles visible
     },
-    interactivity: {
-      events: {
-        onHover: { enable: false },
-        onClick: { enable: false },
-      },
+    particles: {
+      number: { value: 80 },
+      size: { value: 3 },
+      color: { value: "#ffffff" },
+      move: { speed: 1 },
+      opacity: { value: 0.6 },
     },
   };
 
